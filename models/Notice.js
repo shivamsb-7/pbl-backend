@@ -9,7 +9,7 @@ const noticeSchema = new mongoose.Schema({
   visibility: {
     role: {
       type: String,
-      enum: ["public", "student", "faculty", "admin"]
+      enum: ["public", "student", "faculty", "admin", "general"]
     },
     department: String,
     class: String,

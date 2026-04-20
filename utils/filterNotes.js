@@ -2,9 +2,10 @@
 
 function canView(notice, user) {
   const v = notice.visibility;
-
+  console.log(notice)
+  console.log(user)
   // 🌍 Public → always visible
-  if (v.role === "public") return true;
+  if (v.role === "general") return true;
 
   // ❌ Not logged in → only public
   if (!user) return false;
@@ -29,6 +30,7 @@ function canView(notice, user) {
 
   // 🎓 Student
   if (user.role === "student") {
+    if(v.batch) console.log(v)
     if (v.role === "student") {
       return (
         v.department === user.department &&
