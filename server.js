@@ -11,8 +11,9 @@ app.use(cors());
 app.use(express.json());
 app.use(auth);
 
-mongoose.connect(process.env.CONN);
-
+mongoose.connect(process.env.CONN).then(() => {
+    console.log("mongodb connected :)")
+})
 app.use("/notices", require("./routes/notices"));
 app.use("/auth", require("./routes/auth"));
 
